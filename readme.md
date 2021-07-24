@@ -2,6 +2,13 @@
 
 https://apollo-server-starter.herokuapp.com/graphql
 
+```shell
+    curl --request POST \
+     --header 'content-type: application/json' \
+     --url 'https://apollo-server-starter.herokuapp.com/graphql' \
+     --data '{"query":"query { \_\_typename }"}'
+```
+
 ## Changelog
 
 The changelog can be found on the [Releases page](https://github.com/dcai/apollo-server-starter/releases).
