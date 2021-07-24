@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
@@ -7,6 +8,8 @@ const { addResolversToSchema } = require('@graphql-tools/schema');
 const { GraphQLFileLoader } = require('@graphql-tools/graphql-file-loader');
 const { mergeResolvers } = require('@graphql-tools/merge');
 const { loadFilesSync } = require('@graphql-tools/load-files');
+const knex = require('knex');
+const knexConfig = require('../knexfile');
 
 const PORT = process.env.PORT || 4000;
 
@@ -24,7 +27,16 @@ async function startApolloServer() {
     schema,
     resolvers,
   });
-  const server = new ApolloServer({ schema: schemaWithResolvers });
+  const server = new ApolloServer({
+    schema: schemaWithResolvers,
+    context: () => {
+      const env = process.env.NODE_ENV || 'development';
+      const db = knex(knexConfig[env]);
+      return {
+        db,
+      };
+    },
+  });
   await server.start();
 
   const app = express();

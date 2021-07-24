@@ -19,7 +19,7 @@ module.exports = {
     books: () => {
       return books;
     },
-    search: (parent, args) => {
+    search: (parent, args, context) => {
       const term = R.pipe(R.prop('term'), R.toLower)(args);
       const matchTitle = (str) => R.pipe(R.prop('title'), R.toLower, R.includes(str));
       const filter = R.filter(matchTitle(term));

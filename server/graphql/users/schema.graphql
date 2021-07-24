@@ -1,0 +1,16 @@
+type User {
+  uuid: String
+  firstName: String
+  lastName: String
+  email: String
+  avatar: String
+  phone: String
+  street: String
+  city: String
+  country: String
+  bio: String
+}
+
+type Query {
+  users: [User]
+}
