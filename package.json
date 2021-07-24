@@ -1,0 +1,37 @@
+{
+  "name": "apollo-server-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "private": true,
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "pretest": "npm run lint",
+    "posttest": "npm run format",
+    "lint": "eslint ./server --cache --fix",
+    "format": "prettier --write server/*",
+    "test:jest": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test": "npm run test:jest --"
+  },
+  "author": "Dongsheng Cai <d@tux.im> (http://dongsheng.org/)",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "apollo-server-express": "^3.0.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "graphql-tools": "^7.0.5",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/eslint-parser": "^7.14.7",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2"
+  }
+}
