@@ -1,6 +1,6 @@
 # apollo-server-starter
 
-...
+https://apollo-server-starter.herokuapp.com/graphql
 
 ## Changelog
 
